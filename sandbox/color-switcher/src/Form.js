@@ -12,24 +12,36 @@ import React, { Component } from 'react'
 class Form extends Component{
   constructor() {
     super()
-    this.state = {
-      value: ''
-    }
+    this.state = { value: '' }
   }
 
-  handleClick(e) {
+  handleSubmit(e) {
     e.preventDefault()
-    console.log('handleClick')
+    console.log('handleSubmit')
+  }
+
+  handleChange(e) {
+    console.log('handleChange - e.target.value', e.target.value)
+    let value = e.target.value
+    // the method used to update state is.........
+    // this.setState({})
+    // we can write it like this...
+    // this.setState( { value: value  } )
+    // or use the new convention as a single value
+    this.setState( { value } )
   }
 
   // return...returns JSX (combo of HTML/JS)
   render() {
     return (
-        <form>
-          <input type="text" placeholder="add a color" />
-          <button 
-           onClick={(e) => this.handleClick(e)}
-          >Submit</button>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <input 
+            type="text" 
+            placeholder="add a color" 
+            value={this.state.value}
+            onChange={ (e) => this.handleChange(e)}
+          />
+          <button >Submit</button>
         </form>
     )
   }
