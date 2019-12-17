@@ -8,9 +8,8 @@ function App() {
     <div className="App">
      <section>
         <h1>Color Scheme Switcher</h1>
-
         <p>Try clicking on one of the colors to change the background color on this page!</p>
-        
+
         <Form />
         <ColorList />
 
